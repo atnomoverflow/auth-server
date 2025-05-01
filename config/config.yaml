@@ -1,0 +1,31 @@
+http:
+  port: 4000
+  origin:
+    - "*"
+app:
+  name: progress
+  issuer: http://localhost:4000
+  aud: "*"
+logger:
+  level: "debug"
+hasher:
+  password:
+    algo: "argon2"
+    memory: 65536
+    iteration: 3
+    parallelism: 2 
+    saltLength: 16
+    keyLength: 16 
+auth:
+  verificationCodeLength: 5
+  jwtSecret: "ZXphZWFkYSNhemV6ZQ=="
+
+db:
+  connectionString: "postgres://root:root@localhost:5432/progress"
+
+mail:
+  smtp:
+    host: "smtp.gmail.com"
+    port: 25
+    from: ""
+    password: ""
